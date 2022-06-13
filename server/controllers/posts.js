@@ -1,4 +1,5 @@
 import PostMessage from "../models/postMessage.js";
+import mongoose from "mongoose";
 
 export const getPosts = async (req , res)=>{
     try{
@@ -7,17 +8,33 @@ export const getPosts = async (req , res)=>{
     }catch(error){
         res.status(404).json({message: error.message})
 
-    }
-   
-}
+    }  
+};
 
-export const createPosts = async (req , res)=>{
+export const createPost = async (req , res)=>{
+    console.log("controlereererrer");
     const body = req.body;
     const newPost = new PostMessage(body);
     try{
         await newPost.save();
+        console.log(newPost,"new post");
         res.status(201).json(newPost);
     }catch(err){
         res.status(409).json({ message: ErrorEvent.message});
     }
 }
+
+export const updatePost = async (req, res) =>{
+    const { id: _id} = req.params;
+    const post =  req.body;
+    if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id');
+    const updatedPost = await PostMessage.findByIdAndUpdate(_id, post, {new : true});
+    res.json(updatedPost)
+}
+
+export const deletePost = async (req, res) =>{
+    const { id } = req.params;
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No post with that id');
+    await PostMessage.findByIdAndRemove(id);
+    res.json({message: 'Post deleted successfully'})
+ }

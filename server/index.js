@@ -14,9 +14,9 @@ app.use(cors());
 
 
 app.use('/posts', postRoutes)
-
-const CONNECTION_URL = 'mongodb+srv://instaverse:HelloWorld@cluster0.wxhh8.mongodb.net/?retryWrites=true&w=majority';
-const PORT = process.env.PORT || 1000
+// mongodb+srv://data_base:Hello123@cluster0.wxhh8.mongodb.net/?retryWrites=true&w=majority
+const CONNECTION_URL = 'mongodb+srv://data_base:Hello123@cluster0.wxhh8.mongodb.net/?retryWrites=true&w=majority';
+const PORT = process.env.PORT || 9090;
 
 
 // mongoose.connect(CONNECTION_URl,(useNewUrlParser:true, useUnifiedTopology:true));
