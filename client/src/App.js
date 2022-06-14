@@ -1,47 +1,26 @@
 import React from "react";
-import { Container , AppBar, Typography , Grow , Grid} from '@material-ui/core';
-import instaverse from './images/Instaverse.png';
-
-import Posts from "./components/Posts/Posts.js";
-import Form from './components/Form/Form';
-import useStyles from './styles'
-import { useDispatch } from "react-redux";
-import { useEffect , useState } from "react";
-
-import {getPosts} from './actions/posts'
+import { Container} from '@material-ui/core';
+import Navbar from "./components/Navbar/Navbar.js";
+import Home from "./components/Home/Home.js";
+import Auth from "./components/Auth/Auth.js";
+// import {  Route,  Routes ,Switch } from "react-router";
+// import {BrowserRouter} from 'react-router-dom';
+// import { Routes ,Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
-  const [currentId , setCurrentId] = useState(null);
-  const classes = useStyles();
-  const dispatch = useDispatch();
-
-useEffect(()=>{
-  dispatch(getPosts());
-},[dispatch]);
-
   return (
-   <Container maxWidth='lg'>
-     <AppBar className={classes.appBar} position ='static' color='inherit'>
-        <Typography className={classes.heading} variant ='h2' align='center'>Instaverse</Typography> 
-        <img className={classes.image} src={instaverse} alt='instverse' height='60' />
-     </AppBar>
-     <Grow in>
-       <Container>
-         <Grid container justifyContent="space-between" alignItems='stretch' spacing={4}>
-           <Grid items xs={12} sm={7}>
-              <Posts setCurrentId={setCurrentId}/>
-           </Grid>
+    <BrowserRouter>
+      <Container maxWidth='lg'>
+      <Navbar />
+      <Routes>
+        <Route path="/"  element={<Home />}   />
+        <Route path="/auth"   element={<Auth />}   />
 
-           <Grid items xs={12} sm={4}>
-              <Form currentId={currentId} setCurrentId={setCurrentId}/>
-           </Grid>
-           
-
-         </Grid>
-       </Container>
-     </Grow>
-
-   </Container>
+      </Routes>
+  
+      </Container>
+   </BrowserRouter>
   )
 }
 
