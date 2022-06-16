@@ -1,11 +1,9 @@
 import React, {useState} from 'react'
-import { Avatar, Button, Paper, Grid, Typography, Container, TextField } from '@material-ui/core';
+import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import useStyles from './Styles'
 import LockOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
 import Input from './Input';
-// import {useHistory} from 'react-router-dom'
-import {useNavigate} from 'react-router-dom'
-
+import { useNavigate } from "react-router-dom"
 import {signin , signup} from '../../actions/auth';
 import { useDispatch } from 'react-redux';
 
@@ -16,18 +14,15 @@ const Auth = () => {
     const [showPassword , setShowPassword] = useState(true);
     const [isSignUp, setIsSignUp] = useState(true);
     const [formData, setFormData] = useState(initialState);
-    const history = useNavigate();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const classes = useStyles();
-    // const isSignUp = true;
     const handleSubmit = (e) =>{
         e.preventDefault();
-        console.log(formData); 
-        if(signup){
-            dispatch(signup(formData, history))
+        if(isSignUp){
+            dispatch(signup(formData, navigate))
         }else{
-
-
+            dispatch(signin(formData, navigate));
         }
     };
 

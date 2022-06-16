@@ -3,23 +3,20 @@ import { Container} from '@material-ui/core';
 import Navbar from "./components/Navbar/Navbar.js";
 import Home from "./components/Home/Home.js";
 import Auth from "./components/Auth/Auth.js";
-// import {  Route,  Routes ,Switch } from "react-router";
-// import {BrowserRouter} from 'react-router-dom';
-// import { Routes ,Route, BrowserRouter } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Container maxWidth='lg'>
-      <Navbar />
-      <Routes>
-        <Route path="/"  element={<Home />}   />
-        <Route path="/auth"   element={<Auth />}   />
+        <Navbar />
+        <Routes>
+
+          <Route path="/"  element={<Home />}   />
+          <Route path="/auth"   element={<Auth />}   />
 
       </Routes>
-  
-      </Container>
+    </Container>
    </BrowserRouter>
   )
 }

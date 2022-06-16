@@ -6,7 +6,6 @@ import * as api from '../api';
  
 export const getPosts = () => async(dispatch) =>{
     try{
-        console.log("here 💯");
         const { data } = await api.fetchStories(); // fetch data from api
         // dispatch action that is object has type and payload key 
         dispatch({type: FETCH_ALL, payload: data}); // instead of returning; 
@@ -16,10 +15,8 @@ export const getPosts = () => async(dispatch) =>{
 }   
 
 export const createPost = (post) => async (dispatch) => {
-    console.log(post,"post post");
     try {
        const { data } = await api.createPost(post)
-       console.log(data,"here is datat");
        dispatch({ type: CREATE, payload: data })
     } catch (error) {
        console.log(error);
