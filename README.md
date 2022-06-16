@@ -17,7 +17,7 @@ Instaverse is full stack MERN application. It's sort of social media app for tra
 
  # Installation:
 
- cd into the cloned repo and run npm install to install the dependencies.
+ cd into the cloned repo and run npm install to install the dependencies on both directories server and client separately.
 
  Create .env file in the server folder with the following structure:
  PORT = 
@@ -28,3 +28,6 @@ Instaverse is full stack MERN application. It's sort of social media app for tra
   mongodb+srv://data_base:<password>@cluster0.wxhh8.mongodb.net/?retryWrites=true&w=majority 
 
   Make sure to replace your data_base by your database name and <password> by your data_base password that you created in mongoDb cloud.
+
+
+Once all dependencies are installed, you can use the command npm start on both directories server and client separately  to begin hosting a local development server for the website to be hosted upon.
