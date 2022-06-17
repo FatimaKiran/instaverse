@@ -26,7 +26,7 @@ Instaverse is full stack MERN application. It's sort of social media app for tra
 
  Please assign 9090 to PORT. 
  In CONNECTION_URL add this url:
-  mongodb+srv://data_base:<password>@cluster0.wxhh8.mongodb.net/?retryWrites=true&w=majority 
+ mongodb+srv://data_base:<password>@cluster0.wxhh8.mongodb.net/?retryWrites=true&w=majority
 
   Make sure to replace your data_base by your database name and <password> by your data_base password that you created in mongoDb cloud.
 
